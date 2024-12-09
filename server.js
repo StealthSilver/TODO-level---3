@@ -3,17 +3,16 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 
-// In-memory todos
+
 let todos = [
-    // Example data structure
-    // { id: 1, task: "Sample Task", completed: false }
+
 ];
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// Routes
+
 app.get('/', (req, res) => {
     res.render('index', { todos });
 });
@@ -40,7 +39,7 @@ app.post('/delete/:id', (req, res) => {
     res.redirect('/');
 });
 
-// Start server
+
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
